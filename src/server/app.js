@@ -4,6 +4,7 @@ const swaggerSpec = require("./config/swagger");
 const todoRoutes = require("./routes/todo.routes");
 const authRoutes = require("./routes/auth.routes");
 const statsRoutes = require("./routes/stats.routes");
+const categoryRoutes = require("./routes/category.routes");
 const logger = require("./middlewares/logger.middleware");
 const notFound = require("./middlewares/notFound.middleware");
 const errorHandler = require("./middlewares/errorHandler.middleware");
@@ -22,6 +23,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/todos", todoRoutes);
+app.use("/api/categories", categoryRoutes);
 app.use("/api/stats", statsRoutes);
 
 app.use(notFound);
